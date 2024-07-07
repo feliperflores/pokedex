@@ -1,4 +1,6 @@
-# How to Run
+# Pokedex
+
+## How to Run
 
 `yarn install`
 
