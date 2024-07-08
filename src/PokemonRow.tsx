@@ -1,4 +1,4 @@
-import PokemonType from './PokemonType';
+import PokemonTypeFrame from './PokemonTypeFrame';
 import { Pokemon } from './PokemonTypes';
 
 type PokemonRowProps = {
@@ -19,7 +19,7 @@ const PokemonRow = ({ pokemon: { id, name, types, sprite } }: PokemonRowProps) =
     <li>
       Types:{' '}
       {types.map((type) => (
-        <PokemonType key={type} type={type} />
+        <PokemonTypeFrame key={type} type={type} />
       ))}
     </li>
   </div>
