@@ -5,4 +5,4 @@ export type Pokemon = {
   sprite: string;
 };
 
-export type PokemonType = 'Grass' | 'Poison' | 'Fire' | 'Flying';
+export type PokemonType = 'Grass' | 'Poison' | 'Fire' | 'Flying' | 'Water';

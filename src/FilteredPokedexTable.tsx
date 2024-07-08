@@ -40,6 +40,24 @@ const pokemonArray: Pokemon[] = [
     types: ['Fire', 'Flying'],
     sprite: 'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/006.png',
   },
+  {
+    id: 7,
+    name: 'Squirtle',
+    types: ['Water'],
+    sprite: 'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/007.png',
+  },
+  {
+    id: 8,
+    name: 'Wartortle',
+    types: ['Water'],
+    sprite: 'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/008.png',
+  },
+  {
+    id: 9,
+    name: 'Blastoise',
+    types: ['Water'],
+    sprite: 'https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/009.png',
+  },
 ];
 
 const FilteredPokedexTable = () => {
