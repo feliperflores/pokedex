@@ -11,7 +11,7 @@ const PokemonRow = ({ pokemon: { id, name, types, sprite } }: PokemonRowProps) =
       <img
         src={sprite}
         alt={name}
-        className="transition duration-200 group-hover:bg-gray-400 max-h-60 max-w-60 border rounded mb-2 bg-gray-200"
+        className="max-h-60 max-w-60 border rounded mb-2 bg-gray-200 transition duration-200 group-hover:bg-gray-400"
       />
     </li>
     <li className="mb-1">
