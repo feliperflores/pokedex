@@ -62,6 +62,7 @@ const pokemonArray: Pokemon[] = [
 
 const FilteredPokedexTable = () => {
   const [pokemon, setPokemon] = useState(pokemonArray);
+
   const filterPokemon = (type: PokemonType | undefined) => {
     if (!type) {
       setPokemon(pokemonArray);
@@ -71,31 +72,30 @@ const FilteredPokedexTable = () => {
     const filteredPokemon = pokemonArray.filter((p: Pokemon) => p.types.includes(type as PokemonType));
     setPokemon(filteredPokemon);
   };
+
+  const byName = (a: Pokemon, b: Pokemon) => {
+    if (a.name > b.name) return 1;
+    if (a.name < b.name) return -1;
+    return 0;
+  };
+  const byId = (a: Pokemon, b: Pokemon) => {
+    const result = a.id - b.id;
+    if (result > 0) return 1;
+    if (result < 0) return -1;
+    return 0;
+  };
+
   const sortPokemonBy = (type: SortOptions) => {
-    if (type === 'id') {
-      setPokemon(
-        pokemon.toSorted((a: Pokemon, b: Pokemon) => {
-          const result = a[type] - b[type];
-          if (result > 0) return 1;
-          if (result < 0) return -1;
-          return 0;
-        }),
-      );
-    }
-    if (type === 'name') {
-      setPokemon(
-        pokemon.toSorted((a: Pokemon, b: Pokemon) => {
-          if (a[type] > b[type]) return 1;
-          if (a[type] < b[type]) return -1;
-          return 0;
-        }),
-      );
-    }
+    const filters = {
+      id: byId,
+      name: byName,
+    };
+    setPokemon(pokemon.toSorted(filters[type]));
   };
 
   return (
     <div className="m-6">
-      <PokemonFilters selectType={filterPokemon} selectedType={undefined} sortBy={sortPokemonBy} selectedSort="id" />
+      <PokemonFilters selectType={filterPokemon} selectedType={undefined} sortBy={sortPokemonBy} />
       <PokedexTable pokemonArray={pokemon} />
     </div>
   );
