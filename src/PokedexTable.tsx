@@ -6,13 +6,11 @@ type PokemonTableProps = {
 };
 
 const PokedexTable = ({ pokemonArray }: PokemonTableProps) => (
-  <div>
-    <ul className="flex flex-wrap justify-around">
-      {pokemonArray.map((pokemon) => (
-        <PokemonRow key={pokemon.id} pokemon={pokemon} />
-      ))}
-    </ul>
-  </div>
+  <ul className="flex flex-wrap justify-around">
+    {pokemonArray.map((pokemon) => (
+      <PokemonRow key={pokemon.id} pokemon={pokemon} />
+    ))}
+  </ul>
 );
 
 export default PokedexTable;
