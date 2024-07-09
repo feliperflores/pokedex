@@ -1,18 +1,18 @@
 import { PokemonType } from './PokemonTypes';
 
-type PokemonTypeSelectionProps = {
-  selectedType: string | undefined;
-  selectType: (type: string | undefined) => void;
+type PokemonFilterProps = {
+  selectedType: PokemonType | undefined;
+  selectType: (type: PokemonType | undefined) => void;
 };
 
 const pokemonTypes: PokemonType[] = ['Grass', 'Poison', 'Fire', 'Flying', 'Water'];
 
-const PokemonTypeSelection = ({ selectedType, selectType }: PokemonTypeSelectionProps) => (
-  <div className="mx-6">
+const PokemonFilter = ({ selectedType, selectType }: PokemonFilterProps) => (
+  <>
     <span>Type: </span>
     <select
-      value={selectedType}
-      onChange={(event) => selectType(event.currentTarget.value)}
+      defaultValue={selectedType}
+      onChange={(event) => selectType((event.currentTarget.value as PokemonType) || undefined)}
       className="p-1 border-2 rounded"
     >
       <option key="All" value={undefined} label="All" />
@@ -22,6 +22,6 @@ const PokemonTypeSelection = ({ selectedType, selectType }: PokemonTypeSelection
         </option>
       ))}
     </select>
-  </div>
+  </>
 );
-export default PokemonTypeSelection;
+export default PokemonFilter;
