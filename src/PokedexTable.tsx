@@ -1,12 +1,12 @@
 import PokemonRow from './PokemonRow';
-import { Pokemon } from './PokemonTypes';
+import { DetailedPokemonApi } from './PokemonTypes';
 
 type PokemonTableProps = {
-  pokemonArray: Pokemon[];
+  pokemonArray: DetailedPokemonApi[];
 };
 
 const PokedexTable = ({ pokemonArray }: PokemonTableProps) => (
-  <ul className="flex flex-wrap justify-around">
+  <ul className="my-3 flex flex-wrap justify-evenly">
     {pokemonArray.map((pokemon) => (
       <PokemonRow key={pokemon.id} pokemon={pokemon} />
     ))}
