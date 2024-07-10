@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import PokedexTable from './PokedexTable';
-import { Pokemon, PokemonType, SortOptions } from './PokemonTypes';
+import { DetailedPokemonApi, PokemonApi, PokemonType, SortOptions } from './PokemonTypes';
 import PokemonFilters from './PokemonFilters';
 
 // const pokemonArray: Pokemon[] = [
@@ -61,37 +61,38 @@ import PokemonFilters from './PokemonFilters';
 // ];
 
 const FilteredPokedexTable = () => {
-  // let defaultPokemon: TestPokemons[] = [];
-  const [pokemon, setPokemon] = useState([]);
+  const defaultPokemon = useRef<DetailedPokemonApi[]>([]);
+  const [pokemon, setPokemon] = useState<DetailedPokemonApi[]>(defaultPokemon.current);
 
   useEffect(() => {
     fetch('https://pokeapi.co/api/v2/pokemon/?limit=20')
       .then((response) => response.json())
-      .then((data: TestPokemon) => {
+      .then((data: PokemonApi) => {
         const pokemonUrls = data.results.map((result) => result.url);
         return Promise.all(pokemonUrls.map((url) => fetch(url).then((response) => response.json())));
       })
-      .then((detailedPokemon) => {
+      .then((detailedPokemon: DetailedPokemonApi[]) => {
+        defaultPokemon.current = detailedPokemon;
         setPokemon(detailedPokemon);
       });
   }, []);
 
   const filterPokemon = (type: PokemonType | undefined) => {
     if (!type) {
-      // setPokemon(pokemonArray);
-      // return;
+      setPokemon(defaultPokemon.current);
+      return;
     }
 
-    // const filteredPokemon = pokemonArray.filter((p: Pokemon) => p.types.includes(type as PokemonType));
-    // setPokemon(filteredPokemon);
+    const filteredPokemon = defaultPokemon.current.filter((p) => p.types.some((t) => t.type.name === type));
+    setPokemon(filteredPokemon);
   };
 
-  const byName = (a: Pokemon, b: Pokemon) => {
+  const byName = (a: DetailedPokemonApi, b: DetailedPokemonApi) => {
     if (a.name > b.name) return 1;
     if (a.name < b.name) return -1;
     return 0;
   };
-  const byId = (a: Pokemon, b: Pokemon) => {
+  const byId = (a: DetailedPokemonApi, b: DetailedPokemonApi) => {
     const result = a.id - b.id;
     if (result > 0) return 1;
     if (result < 0) return -1;

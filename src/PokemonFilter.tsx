@@ -1,11 +1,12 @@
 import { PokemonType } from './PokemonTypes';
+import capitalizeFirstLetter from './StringFormatter';
 
 type PokemonFilterProps = {
   selectedType: PokemonType | undefined;
   selectType: (type: PokemonType | undefined) => void;
 };
 
-const pokemonTypes: PokemonType[] = ['Grass', 'Poison', 'Fire', 'Flying', 'Water'];
+const pokemonTypes: PokemonType[] = ['grass', 'poison', 'fire', 'flying', 'water'];
 
 const PokemonFilter = ({ selectedType, selectType }: PokemonFilterProps) => (
   <>
@@ -18,7 +19,7 @@ const PokemonFilter = ({ selectedType, selectType }: PokemonFilterProps) => (
       <option key="All" value={undefined} label="All" />
       {pokemonTypes.map((type) => (
         <option key={type} value={type}>
-          {type}
+          {capitalizeFirstLetter(type)}
         </option>
       ))}
     </select>

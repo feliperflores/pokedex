@@ -1,8 +1,8 @@
 import PokemonRow from './PokemonRow';
-import { Pokemon } from './PokemonTypes';
+import { DetailedPokemonApi } from './PokemonTypes';
 
 type PokemonTableProps = {
-  pokemonArray: Pokemon[];
+  pokemonArray: DetailedPokemonApi[];
 };
 
 const PokedexTable = ({ pokemonArray }: PokemonTableProps) => (
