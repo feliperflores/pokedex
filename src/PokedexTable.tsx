@@ -6,7 +6,7 @@ type PokemonTableProps = {
 };
 
 const PokedexTable = ({ pokemonArray }: PokemonTableProps) => (
-  <ul className="flex flex-wrap justify-around">
+  <ul className="my-3 flex flex-wrap justify-evenly">
     {pokemonArray.map((pokemon) => (
       <PokemonRow key={pokemon.id} pokemon={pokemon} />
     ))}

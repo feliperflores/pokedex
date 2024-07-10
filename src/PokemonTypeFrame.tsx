@@ -11,6 +11,8 @@ const typeMap = new Map<PokemonType, string>([
   ['fire', 'bg-orange-600'],
   ['flying', 'bg-gradient-to-b from-50% from-cyan-300 to-50% to-gray-400'],
   ['water', 'bg-blue-400'],
+  ['bug', 'bg-lime-600'],
+  ['normal', 'bg-slate-400'],
 ]);
 
 const PokemonTypeFrame = ({ type }: PokemonTypeProps) => (
