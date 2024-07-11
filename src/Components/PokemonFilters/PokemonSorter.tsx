@@ -1,5 +1,5 @@
-import { SortOptions } from './PokemonTypes';
-import capitalizeFirstLetter from './StringFormatter';
+import { SortOptions } from '../../PokemonTypes';
+import capitalizeFirstLetter from '../../Formatters/StringFormatter';
 
 type PokemonSorterProps = {
   sortBy: (type: SortOptions) => void;

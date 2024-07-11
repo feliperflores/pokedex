@@ -1,5 +1,5 @@
-import { PokemonType } from './PokemonTypes';
-import capitalizeFirstLetter from './StringFormatter';
+import capitalizeFirstLetter from '../../Formatters/StringFormatter';
+import { PokemonType } from '../../PokemonTypes';
 
 type PokemonTypeProps = {
   type: PokemonType;

@@ -1,5 +1,5 @@
 import PokemonRow from './PokemonRow';
-import { DetailedPokemonApi } from './PokemonTypes';
+import { DetailedPokemonApi } from '../../PokemonTypes';
 
 type PokemonTableProps = {
   pokemonArray: DetailedPokemonApi[];

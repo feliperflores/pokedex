@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import PokedexTable from './PokedexTable';
-import { DetailedPokemonApi, PokemonApi, PokemonType, SortOptions } from './PokemonTypes';
-import PokemonFilters from './PokemonFilters';
+import PokedexTable from '../PokemonTable/PokedexTable';
+import { DetailedPokemonApi, PokemonApi, PokemonType, SortOptions } from '../../PokemonTypes';
+import PokemonFilters from '../PokemonFilters/PokemonFilters';
 
 const FilteredPokedexTable = () => {
   const defaultPokemon = useRef<DetailedPokemonApi[]>([]);

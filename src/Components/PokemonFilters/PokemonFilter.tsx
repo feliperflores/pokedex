@@ -1,12 +1,30 @@
-import { PokemonType } from './PokemonTypes';
-import capitalizeFirstLetter from './StringFormatter';
+import { PokemonType } from '../../PokemonTypes';
+import capitalizeFirstLetter from '../../Formatters/StringFormatter';
 
 type PokemonFilterProps = {
   selectedType: PokemonType | undefined;
   selectType: (type: PokemonType | undefined) => void;
 };
 
-const pokemonTypes: PokemonType[] = ['grass', 'poison', 'fire', 'flying', 'water'];
+const pokemonTypes: Readonly<PokemonType>[] = [
+  'bug',
+  'dark',
+  'dragon',
+  'electric',
+  'fairy',
+  'fighting',
+  'fire',
+  'flying',
+  'ghost',
+  'grass',
+  'ground',
+  'ice',
+  'poison',
+  'psychic',
+  'rock',
+  'steel',
+  'water',
+];
 
 const PokemonFilter = ({ selectedType, selectType }: PokemonFilterProps) => (
   <>

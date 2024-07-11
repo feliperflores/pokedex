@@ -1,4 +1,4 @@
-import FilteredPokedexTable from './FilteredPokedexTable';
+import FilteredPokedexTable from './Components/PokemonFilteredTable/FilteredPokedexTable';
 
 const App = () => <FilteredPokedexTable />;
 

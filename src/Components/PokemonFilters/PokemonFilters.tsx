@@ -1,6 +1,6 @@
 import PokemonFilter from './PokemonFilter';
 import PokemonSorter from './PokemonSorter';
-import { PokemonType, SortOptions } from './PokemonTypes';
+import { PokemonType, SortOptions } from '../../PokemonTypes';
 
 type PokemonFiltersProps = {
   selectedType: PokemonType | undefined;

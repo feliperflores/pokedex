@@ -1,6 +1,6 @@
+import { DetailedPokemonApi } from '../../PokemonTypes';
+import capitalizeFirstLetter from '../../Formatters/StringFormatter';
 import PokemonTypeFrame from './PokemonTypeFrame';
-import { DetailedPokemonApi } from './PokemonTypes';
-import capitalizeFirstLetter from './StringFormatter';
 
 type PokemonRowProps = {
   pokemon: DetailedPokemonApi;
