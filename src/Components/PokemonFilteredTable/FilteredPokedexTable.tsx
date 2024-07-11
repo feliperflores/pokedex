@@ -29,6 +29,10 @@ const FilteredPokedexTable = () => {
     const filteredPokemon = defaultPokemon.current.filter((p) => p.types.some((t) => t.type.name === type));
     setPokemon(filteredPokemon);
   };
+  const search = (name: string) => {
+    const filteredPokemon = defaultPokemon.current.filter((p) => p.name.includes(name));
+    setPokemon(filteredPokemon);
+  };
 
   const byName = (a: DetailedPokemonApi, b: DetailedPokemonApi) => {
     if (a.name > b.name) return 1;
@@ -52,7 +56,7 @@ const FilteredPokedexTable = () => {
 
   return (
     <div className="m-6">
-      <PokemonFilters selectType={filterPokemon} selectedType={undefined} sortBy={sortPokemonBy} />
+      <PokemonFilters selectType={filterPokemon} selectedType={undefined} sortBy={sortPokemonBy} search={search} />
       <PokedexTable pokemonArray={pokemon} />
     </div>
   );
