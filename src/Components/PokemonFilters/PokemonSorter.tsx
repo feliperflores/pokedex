@@ -1,5 +1,4 @@
 import { SortOptions } from '../../PokemonTypes';
-import capitalizeFirstLetter from '../../Formatters/StringFormatter';
 
 type PokemonSorterProps = {
   sortBy: (type: SortOptions) => void;
@@ -12,11 +11,11 @@ const PokemonSorter = ({ sortBy }: PokemonSorterProps) => (
     <span>Sort By: </span>
     <select
       onChange={(event) => sortBy((event.currentTarget.value as SortOptions) || undefined)}
-      className="p-1 border-2 rounded"
+      className="p-1 border-2 rounded capitalize"
     >
       {sortOptions.map((type) => (
-        <option key={type} value={type}>
-          {capitalizeFirstLetter(type)}
+        <option className="capitalize" key={type} value={type}>
+          {type}
         </option>
       ))}
     </select>

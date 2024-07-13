@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { ApiStructure, PokemonType } from '../../PokemonTypes';
-import capitalizeFirstLetter from '../../Formatters/StringFormatter';
 
 type PokemonFilterProps = {
   selectedType: PokemonType | undefined;
@@ -23,12 +22,12 @@ const PokemonFilter = ({ selectedType, selectType }: PokemonFilterProps) => {
       <select
         defaultValue={selectedType}
         onChange={(event) => selectType(event.currentTarget.value as PokemonType)}
-        className="p-1 border-2 rounded"
+        className="p-1 border-2 rounded capitalize"
       >
         <option key="All" value={undefined} label="All" />
         {types.map((type) => (
-          <option key={type} value={type}>
-            {capitalizeFirstLetter(type)}
+          <option className="capitalize" key={type} value={type}>
+            {type}
           </option>
         ))}
       </select>
