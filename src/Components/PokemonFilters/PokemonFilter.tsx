@@ -2,13 +2,12 @@ import { useEffect, useState } from 'react';
 import { ApiStructure, PokemonType } from '../../PokemonTypes';
 
 type PokemonFilterProps = {
-  selectedType: PokemonType | undefined;
   selectType: (type: PokemonType | undefined) => void;
 };
 
 const fetchTypes = () => fetch('https://pokeapi.co/api/v2/type/?limit=50').then((response) => response.json());
 
-const PokemonFilter = ({ selectedType, selectType }: PokemonFilterProps) => {
+const PokemonFilter = ({ selectType }: PokemonFilterProps) => {
   const [types, setTypes] = useState<PokemonType[]>([]);
   useEffect(() => {
     fetchTypes().then((data) => {
@@ -20,7 +19,6 @@ const PokemonFilter = ({ selectedType, selectType }: PokemonFilterProps) => {
     <>
       <span>Type: </span>
       <select
-        defaultValue={selectedType}
         onChange={(event) => selectType(event.currentTarget.value as PokemonType)}
         className="bg-slate-100 p-1 border-2 rounded capitalize"
       >

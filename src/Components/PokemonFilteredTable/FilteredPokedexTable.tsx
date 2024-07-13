@@ -3,8 +3,10 @@ import PokedexTable from '../PokemonTable/PokedexTable';
 import { DetailedPokemonApi, PokemonApi, PokemonType, SortOptions } from '../../PokemonTypes';
 import PokemonFilters from '../PokemonFilters/PokemonFilters';
 
+const PAGINATION_SIZE = 24;
+
 const fetchDetailedPokemon = (offset: number) =>
-  fetch(`https://pokeapi.co/api/v2/pokemon/?limit=21&offset=${offset}`)
+  fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${PAGINATION_SIZE}&offset=${offset}`)
     .then((response) => response.json())
     .then((data: PokemonApi) => {
       const pokemonUrls = data.results.map((result) => result.url);
@@ -27,8 +29,6 @@ const SORT_BY = {
   id: byId,
   name: byName,
 };
-
-const PAGINATION_SIZE = 21;
 
 const FilteredPokedexTable = () => {
   const defaultPokemon = useRef<DetailedPokemonApi[]>([]);
@@ -66,16 +66,17 @@ const FilteredPokedexTable = () => {
     const filteredPokemon = defaultPokemon.current.filter((p) => p.name.includes(name));
     setPokemon(filteredPokemon);
   };
-  const paginate = () => {
-    setOffset(offset + PAGINATION_SIZE);
-  };
 
   return (
     <div className="m-6">
-      <PokemonFilters selectType={filterPokemon} selectedType={undefined} sortBy={sortPokemonBy} search={search} />
+      <PokemonFilters selectType={filterPokemon} sortBy={sortPokemonBy} search={search} />
       <PokedexTable pokemonArray={pokemon} />
       <div className="flex w-full justify-center">
-        <button onClick={() => paginate()} type="button" className="bg-slate-100 border-2 rounded p-2">
+        <button
+          onClick={() => setOffset(offset + PAGINATION_SIZE)}
+          type="button"
+          className="bg-slate-100 border-2 rounded p-2"
+        >
           Load More
         </button>
       </div>
