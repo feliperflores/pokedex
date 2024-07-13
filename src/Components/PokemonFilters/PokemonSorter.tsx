@@ -11,7 +11,7 @@ const PokemonSorter = ({ sortBy }: PokemonSorterProps) => (
     <span>Sort By: </span>
     <select
       onChange={(event) => sortBy((event.currentTarget.value as SortOptions) || undefined)}
-      className="p-1 border-2 rounded capitalize"
+      className="bg-slate-100 p-1 border-2 rounded capitalize"
     >
       {sortOptions.map((type) => (
         <option className="capitalize" key={type} value={type}>

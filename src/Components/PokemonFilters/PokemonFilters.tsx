@@ -11,7 +11,7 @@ type PokemonFiltersProps = {
 };
 
 const PokemonFilters = ({ selectedType, selectType, sortBy, search }: PokemonFiltersProps) => (
-  <div className="mx-6 flex">
+  <div className="flex items-center bg-slate-400 px-2 py-1 rounded mx-6">
     <div className="grow">
       <PokemonSearch search={search} />
     </div>

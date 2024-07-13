@@ -22,7 +22,7 @@ const PokemonFilter = ({ selectedType, selectType }: PokemonFilterProps) => {
       <select
         defaultValue={selectedType}
         onChange={(event) => selectType(event.currentTarget.value as PokemonType)}
-        className="p-1 border-2 rounded capitalize"
+        className="bg-slate-100 p-1 border-2 rounded capitalize"
       >
         <option key="All" value={undefined} label="All" />
         {types.map((type) => (

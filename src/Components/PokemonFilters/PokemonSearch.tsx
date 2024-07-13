@@ -8,9 +8,9 @@ const PokemonSearch = ({ search }: PokemonSearchProps) => (
     <input
       defaultValue={undefined}
       type="text"
-      maxLength={50}
+      maxLength={20}
       onChange={(event) => search(event.currentTarget.value)}
-      className="p-1 border-2 rounded"
+      className="indent-1 bg-slate-100 p-0.5 border-2 rounded"
     />
   </>
 );
