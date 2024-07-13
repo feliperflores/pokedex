@@ -6,12 +6,7 @@ type PokemonRowProps = {
 };
 
 const PokemonRow = ({ pokemon: { id, name, types, sprites } }: PokemonRowProps) => (
-  <div
-    // onClick={(event) => {
-    //   event.currentTarget.animate()
-    // }}
-    className="m-3 min-w-56 group border-2 border-gray-300 rounded p-2 bg-gray-100 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-gray-300 hover:border-gray-400 duration-200"
-  >
+  <div className="m-3 min-w-56 group border-2 border-gray-300 rounded p-2 bg-gray-100 transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-gray-300 hover:border-gray-400 duration-200">
     <li className="flex justify-center">
       <img
         src={sprites.front_default || '/public/pokeball.svg'}
