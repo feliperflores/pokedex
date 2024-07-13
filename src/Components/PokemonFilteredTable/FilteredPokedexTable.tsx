@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import PokedexTable from '../PokemonTable/PokedexTable';
 import { DetailedPokemonApi, PokemonApi, PokemonType, SortOptions } from '../../PokemonTypes';
 import PokemonFilters from '../PokemonFilters/PokemonFilters';
@@ -72,15 +72,13 @@ const FilteredPokedexTable = () => {
 
   return (
     <div className="m-6">
-      <Suspense fallback={<div>Loading...</div>}>
-        <PokemonFilters selectType={filterPokemon} selectedType={undefined} sortBy={sortPokemonBy} search={search} />
-        <PokedexTable pokemonArray={pokemon} />
-        <div className="flex w-full justify-center">
-          <button onClick={() => paginate()} type="button" className="bg-slate-100 border-2 rounded p-2">
-            Load More
-          </button>
-        </div>
-      </Suspense>
+      <PokemonFilters selectType={filterPokemon} selectedType={undefined} sortBy={sortPokemonBy} search={search} />
+      <PokedexTable pokemonArray={pokemon} />
+      <div className="flex w-full justify-center">
+        <button onClick={() => paginate()} type="button" className="bg-slate-100 border-2 rounded p-2">
+          Load More
+        </button>
+      </div>
     </div>
   );
 };
