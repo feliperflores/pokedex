@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import { DetailedPokemonApi } from '../../PokemonTypes';
 import PokemonTypeFrame from './PokemonTypeFrame';
 
@@ -5,8 +6,8 @@ type PokemonBackCardProps = {
   pokemon: DetailedPokemonApi;
 };
 
-const PokemonBackCard = ({ pokemon }: PokemonBackCardProps) => (
-  <div className="min-w-56 group border-2 border-gray-300 rounded p-2 bg-gray-100">
+const PokemonBackCard = forwardRef(({ pokemon }: PokemonBackCardProps, ref: Ref<HTMLDivElement>) => (
+  <div ref={ref} className="min-w-56 group border-2 border-gray-300 rounded p-2 bg-gray-100">
     <li className="text-start mb-1">
       <span>#{pokemon.id}</span>
     </li>
@@ -20,6 +21,6 @@ const PokemonBackCard = ({ pokemon }: PokemonBackCardProps) => (
       ))}
     </li>
   </div>
-);
+));
 
 export default PokemonBackCard;
